@@ -1,0 +1,80 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AssignColumns	matrix.cxx	/^void Matrix::AssignColumns(const Vector c1, const Vector c2, const Vector c3) {$/;"	f	class:Matrix
+Det	matrix.cxx	/^double Matrix::Det() {$/;"	f	class:Matrix
+Invert	matrix.cxx	/^Matrix Matrix::Invert() {$/;"	f	class:Matrix
+Matrix	matrix.cxx	/^Matrix::Matrix() {$/;"	f	class:Matrix
+Matrix	matrix.cxx	/^Matrix::Matrix(const Matrix &M) {$/;"	f	class:Matrix
+Matrix	matrix.cxx	/^Matrix::Matrix(const Vector c1, const Vector c2, const Vector c3) {$/;"	f	class:Matrix
+Matrix	matrix.h	/^class Matrix {$/;"	c
+Object	geometry.h	/^typedef std::list<Triangle> Object;$/;"	t
+Path	geometry.h	/^typedef std::list<std::pair<Point, Vector> > Path;$/;"	t
+Point	geometry.h	/^    Point(): Vector() {}$/;"	f	class:Point
+Point	geometry.h	/^    Point(const Point &P): Vector((const Vector&)P) {}$/;"	f	class:Point
+Point	geometry.h	/^    Point(const Vector &V): Vector(V) {}$/;"	f	class:Point
+Point	geometry.h	/^    Point(double x, double y, double z): Vector(x, y, z) {}$/;"	f	class:Point
+Point	geometry.h	/^class Point: public Vector {$/;"	c
+Polygon	geometry.h	/^typedef std::list<Point> Polygon;$/;"	t
+Test_script	tests.h	/^struct Test_script {$/;"	s
+Triangle	geometry.cxx	/^Triangle::Triangle() {$/;"	f	class:Triangle
+Triangle	geometry.cxx	/^Triangle::Triangle(Point A, Point B, Point C) {$/;"	f	class:Triangle
+Triangle	geometry.cxx	/^Triangle::Triangle(const Triangle &T) {$/;"	f	class:Triangle
+Triangle	geometry.h	/^class Triangle {$/;"	c
+Vector	geometry.cxx	/^Vector::Vector() {$/;"	f	class:Vector
+Vector	geometry.cxx	/^Vector::Vector(const Vector &V) {$/;"	f	class:Vector
+Vector	geometry.cxx	/^Vector::Vector(double x, double y, double z) {$/;"	f	class:Vector
+Vector	geometry.h	/^class Vector {$/;"	c
+WriteSTL	geometry.cxx	/^void Triangle::WriteSTL(FILE *fd) {$/;"	f	class:Triangle
+_I_GEOMETRY_H_	geometry.h	3;"	d
+_I_MATRIX_H_	matrix.h	3;"	d
+_I_PATHS_H_	paths.h	3;"	d
+_I_PATH_EXTRUDE_H_	path_extrude.h	3;"	d
+_TESTS_H_	tests.h	3;"	d
+callback	tests.h	/^    test_callback callback;$/;"	m	struct:Test_script
+coeffs	matrix.h	/^    double coeffs[3][3];$/;"	m	class:Matrix
+cross	geometry.cxx	/^Vector Vector::cross(Vector X, Vector Y) {$/;"	f	class:Vector
+description	tests.h	/^    const char *description;$/;"	m	struct:Test_script
+dot	geometry.cxx	/^double Vector::dot(Vector X, Vector Y) {$/;"	f	class:Vector
+dump	geometry.cxx	/^std::string Vector::dump() {$/;"	f	class:Vector
+dump	matrix.cxx	/^std::string *Matrix::dump() {$/;"	f	class:Matrix
+ell_torus	tests.cxx	/^Object ell_torus() {$/;"	f
+funnel	tests.cxx	/^Object funnel() {$/;"	f
+gen_circle_xz	tests.cxx	/^Polygon gen_circle_xz(Point center, double radius) {$/;"	f
+get_tests	tests.cxx	/^std::vector<Test_script> get_tests() {$/;"	f
+main	main.cxx	/^int main(int argc, char **argv) {$/;"	f
+name	tests.h	/^    const char *name;$/;"	m	struct:Test_script
+norm	geometry.cxx	/^double Vector::norm() {$/;"	f	class:Vector
+normal	geometry.cxx	/^Vector Triangle::normal() {$/;"	f	class:Triangle
+operator *	geometry.cxx	/^Vector operator *(double k, Vector V) {$/;"	f
+operator *	matrix.cxx	/^Matrix Matrix::operator *(Matrix B) {$/;"	f	class:Matrix
+operator *	matrix.cxx	/^Matrix operator *(double k, Matrix M) {$/;"	f
+operator *	matrix.cxx	/^Vector Matrix::operator *(Vector X) {$/;"	f	class:Matrix
+operator *=	geometry.cxx	/^Vector Vector::operator *=(double k) {$/;"	f	class:Vector
+operator +	geometry.cxx	/^Vector Vector::operator +() {$/;"	f	class:Vector
+operator +	geometry.cxx	/^Vector Vector::operator +(const Vector V) {$/;"	f	class:Vector
+operator +	matrix.cxx	/^Matrix Matrix::operator +() {$/;"	f	class:Matrix
+operator +	matrix.cxx	/^Matrix Matrix::operator +(Matrix B) {$/;"	f	class:Matrix
+operator +=	geometry.cxx	/^Vector Vector::operator +=(const Vector V) {$/;"	f	class:Vector
+operator -	geometry.cxx	/^Vector Vector::operator -() {$/;"	f	class:Vector
+operator -	geometry.cxx	/^Vector Vector::operator -(const Vector V) {$/;"	f	class:Vector
+operator -	matrix.cxx	/^Matrix Matrix::operator -() {$/;"	f	class:Matrix
+operator -	matrix.cxx	/^Matrix Matrix::operator -(Matrix B) {$/;"	f	class:Matrix
+operator -=	geometry.cxx	/^Vector Vector::operator -=(const Vector V) {$/;"	f	class:Vector
+operator =	geometry.cxx	/^Triangle Triangle::operator=(const Triangle &T) {$/;"	f	class:Triangle
+operator =	geometry.cxx	/^Vector Vector::operator =(const Vector V) {$/;"	f	class:Vector
+path_arc	paths.cxx	/^Path path_arc(double start_angle, double end_angle, double radius, Point center, int npoints) {$/;"	f
+path_concat	paths.cxx	/^Path path_concat(Path p1, Path p2) {$/;"	f
+path_ell_arc	paths.cxx	/^Path path_ell_arc(double start_angle, double end_angle, double a, double b, Point center, int npoints) {$/;"	f
+path_extrude	path_extrude.cxx	/^Object path_extrude(Polygon poly, Path path, Path guide, bool close_ends) {$/;"	f
+path_helix	paths.cxx	/^Path path_helix(double start_angle, double end_angle, double radius, double height, Point center, int npoints) {$/;"	f
+path_line	paths.cxx	/^Path path_line(Point start, Point end, int npoints) {$/;"	f
+pipe	tests.cxx	/^Object pipe() {$/;"	f
+points	geometry.h	/^    Point points[3];$/;"	m	class:Triangle
+test_callback	tests.h	/^typedef Object (*test_callback)();$/;"	t
+x	geometry.h	/^    double x, y, z;$/;"	m	class:Vector
+y	geometry.h	/^    double x, y, z;$/;"	m	class:Vector
+z	geometry.h	/^    double x, y, z;$/;"	m	class:Vector
