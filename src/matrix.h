@@ -46,6 +46,9 @@ public:
     Matrix Invert();
 
     void AssignColumns(const Vector c1, const Vector c2, const Vector c3);
+    
+    static Matrix Diag(const Vector v);
+    static Matrix RotationYPR(const Vector angles);
 
     std::string *dump();
 };

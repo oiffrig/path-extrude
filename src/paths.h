@@ -22,6 +22,7 @@
 #define _I_PATHS_H_
 
 #include "geometry.h"
+#include "matrix.h"
 
 Path path_line(Point start, Point end, int npoints);
 Path path_arc(double start_angle, double end_angle, double radius, Point center, int npoints);
@@ -29,6 +30,12 @@ Path path_helix(double start_angle, double end_angle, double radius, double heig
 Path path_ell_arc(double start_angle, double end_angle, double a, double b, Point center, int npoints);
 
 Path path_concat(Path p1, Path p2);
+Path path_translate(Path p, Vector v);
+Path path_transform(Path p, Matrix M);
+Path path_scale(Path p, Vector k);
+Path path_scale(Path p, double k);
+Path path_rotate(Path p, Vector angles);
+Path path_rotate(Path p, double angle, Vector n);
 
 #endif
 

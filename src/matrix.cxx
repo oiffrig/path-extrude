@@ -18,6 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <cmath>
 #include <cstdio>
 
 #include "matrix.h"
@@ -120,6 +121,33 @@ void Matrix::AssignColumns(const Vector c1, const Vector c2, const Vector c3) {
     this->coeffs[2][0] = c1.z;
     this->coeffs[2][1] = c2.z;
     this->coeffs[2][2] = c3.z;
+}
+
+Matrix Matrix::Diag(const Vector v) {
+    Matrix M;
+    M.coeffs[0][0] = v.x;
+    M.coeffs[1][1] = v.y;
+    M.coeffs[2][2] = v.z;
+    return M;
+}
+
+Matrix Matrix::RotationYPR(const Vector angles) {
+    Matrix Mx, My, Mz;
+    double c, s;
+
+    c = std::cos(angles.x);
+    s = std::sin(angles.x);
+    Mx.AssignColumns(Vector(1, 0, 0), Vector(0, c, s), Vector(0, -s, c));
+
+    c = std::cos(angles.y);
+    s = std::sin(angles.y);
+    My.AssignColumns(Vector(c, 0, -s), Vector(0, 1, 0), Vector(s, 0, c));
+
+    c = std::cos(angles.z);
+    s = std::sin(angles.z);
+    Mz.AssignColumns(Vector(c, s, 0), Vector(-s, c, 0), Vector(0, 0, 1));
+
+    return Mz * My * Mx;
 }
 
 std::string *Matrix::dump() {

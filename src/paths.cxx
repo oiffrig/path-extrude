@@ -97,3 +97,55 @@ Path path_concat(Path p1, Path p2) {
     return res;
 }
 
+Path path_translate(Path p, Vector v) {
+    Path res;
+
+    for(Path::iterator p_it = p.begin(); p_it != p.end(); p_it++)
+        res.push_back(std::make_pair(p_it->first + v, p_it->second));
+
+    return res;
+}
+
+Path path_transform(Path p, Matrix M) {
+    Path res;
+
+    for(Path::iterator p_it = p.begin(); p_it != p.end(); p_it++)
+        res.push_back(std::make_pair(M * p_it->first, M * p_it->second));
+
+    return res;
+}
+
+Path path_scale(Path p, Vector k) {
+    Matrix M = Matrix::Diag(k);
+    return path_transform(p, M);
+}
+
+Path path_scale(Path p, double k) {
+    return path_scale(p, Vector(k, k, k));
+}
+
+Path path_rotate(Path p, Vector angles) {
+    Matrix M = Matrix::RotationYPR(angles);
+    return path_transform(p, M);
+}
+
+Path path_rotate(Path p, double angle, Vector n) {
+    Vector k = (1. / n.norm()) * n;
+    double c = std::cos(angle), s = std::sin(angle);
+    Path res;
+
+    for(Path::iterator p_it = p.begin(); p_it != p.end(); p_it++) {
+        Vector a = p_it->first;
+        Vector b = p_it->second;
+        Vector cr_a = Vector::cross(k, a);
+        double d_a = Vector::dot(k, a);
+        Vector cr_b = Vector::cross(k, b);
+        double d_b = Vector::dot(k, b);
+        a = c * a + s * cr_a + d_a * (1 - c) * k;
+        b = c * b + s * cr_b + d_b * (1 - c) * k;
+        res.push_back(std::make_pair(a, b));
+    }
+
+    return res;
+}
+
