@@ -1,0 +1,5 @@
+This is the source code for a path extrusion algorithm, which could be
+added to OpenSCAD.
+
+For now it is stand-alone code, but future modifications will bring it
+closer to the libraries used by OpenSCAD.

@@ -1,5 +1,5 @@
 /*
- * tests.cxx - Test models
+ * examples.h - Example models
  *
  * Copyright (C) 2011 Olivier Iffrig
  * Authors: Olivier Iffrig <olivier@iffrig.eu>
@@ -23,16 +23,16 @@
 
 #include <vector>
 
-#include "geometry.h"
+#include "../src/geometry.h"
 
-typedef Object (*test_callback)();
-struct Test_script {
+typedef Object (*example_callback)();
+struct Example_script {
     const char *name;
     const char *description;
-    test_callback callback;
+    example_callback callback;
 };
 
-std::vector<Test_script> get_tests();
+std::vector<Example_script> get_examples();
 
 #endif
 

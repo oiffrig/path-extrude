@@ -1,5 +1,5 @@
 /*
- * tests.cxx - Test models
+ * examples.cxx - Example models
  *
  * Copyright (C) 2011 Olivier Iffrig
  * Authors: Olivier Iffrig <olivier@iffrig.eu>
@@ -20,9 +20,9 @@
 
 #include <cmath>
 
-#include "path_extrude.h"
-#include "paths.h"
-#include "tests.h"
+#include "../src/path_extrude.h"
+#include "../src/paths.h"
+#include "examples.h"
 
 Polygon gen_circle_xz(Point center, double radius) {
     Polygon poly;
@@ -93,30 +93,30 @@ Object spring() {
     return path_extrude(poly, h1, h2, true);
 }
 
-std::vector<Test_script> get_tests() {
-    std::vector<Test_script> tests;
-    Test_script test;
+std::vector<Example_script> get_examples() {
+    std::vector<Example_script> examples;
+    Example_script example;
 
-    test.name = "pipe";
-    test.description = "A pipe";
-    test.callback = pipe;
-    tests.push_back(test);
+    example.name = "pipe";
+    example.description = "A pipe";
+    example.callback = pipe;
+    examples.push_back(example);
 
-    test.name = "ell_torus";
-    test.description = "An (open) elliptic torus";
-    test.callback = ell_torus;
-    tests.push_back(test);
+    example.name = "ell_torus";
+    example.description = "An (open) elliptic torus";
+    example.callback = ell_torus;
+    examples.push_back(example);
 
-    test.name = "funnel";
-    test.description = "A funnel";
-    test.callback = funnel;
-    tests.push_back(test);
+    example.name = "funnel";
+    example.description = "A funnel";
+    example.callback = funnel;
+    examples.push_back(example);
 
-    test.name = "spring";
-    test.description = "A spring";
-    test.callback = spring;
-    tests.push_back(test);
+    example.name = "spring";
+    example.description = "A spring";
+    example.callback = spring;
+    examples.push_back(example);
 
-    return tests;
+    return examples;
 };
 

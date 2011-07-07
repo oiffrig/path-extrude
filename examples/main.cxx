@@ -1,5 +1,5 @@
 /*
- * main.cxx - Main entry point
+ * main.cxx - Main entry point for examples
  *
  * Copyright (C) 2011 Olivier Iffrig
  * Authors: Olivier Iffrig <olivier@iffrig.eu>
@@ -18,32 +18,32 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "geometry.h"
-#include "tests.h"
+#include "../src/geometry.h"
+#include "examples.h"
 
 #include <cstdio>
 #include <iostream>
 #include <string>
 
 int main(int argc, char **argv) {
-    std::vector<Test_script> tests = get_tests();
+    std::vector<Example_script> examples = get_examples();
     size_t i;
 
-    std::cout << "Path extrusion tests" << std::endl;
-    std::cout << "Choose which test you want to run:" << std::endl;
+    std::cout << "Path extrusion examples" << std::endl;
+    std::cout << "Choose which example you want to run:" << std::endl;
 
-    for(i = 0; i < tests.size(); i++)
-        std::cout << "    " << i+1 << "\t" << tests[i].name << "\t" << tests[i].description << std::endl;
+    for(i = 0; i < examples.size(); i++)
+        std::cout << "    " << i+1 << "\t" << examples[i].name << "\t" << examples[i].description << std::endl;
 
     while(true) {
         std::cin >> i;
-        if(i < 1 || i > tests.size())
+        if(i < 1 || i > examples.size())
             std::cout << "Invalid choice, retry" << std::endl;
         else
             break;
     }
 
-    Test_script script = tests[i-1];
+    Example_script script = examples[i-1];
 
     std::string sline("solid "), fname(script.name);
     fname += ".stl";

@@ -4,19 +4,25 @@ CXXFLAGS = -Wall -O3
 LD = g++
 LDFLAGS = -Wall -O3 -lm
 
-SRCS = geometry.cxx matrix.cxx paths.cxx path_extrude.cxx tests.cxx
-OBJS = $(addprefix obj/,main.o $(SRCS:.cxx=.o))
-EXE = path_extrude
+SRCS = geometry.cxx matrix.cxx paths.cxx path_extrude.cxx
+OBJS = $(addprefix obj/,$(SRCS:.cxx=.o))
 
-all: $(EXE)
+EX_SRCS = examples.cxx
+EX_OBJS = $(addprefix obj/ex_,main.o $(EX_SRCS:.cxx=.o))
+EX_TRGT = path_extrude_examples
 
-obj/main.o: src/main.cxx
+all: $(EX_TRGT)
+
+obj/ex_main.o: examples/main.cxx
+	$(CXX) $(CXXFLAGS) -o $@ -c $<
+
+obj/ex_%.o: examples/%.cxx examples/%.h
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 obj/%.o: src/%.cxx src/%.h
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
-$(EXE): $(OBJS)
+$(EX_TRGT): $(EX_OBJS) $(OBJS)
 	$(LD) -o $@ $(LDFLAGS) $^
 
 clean:
